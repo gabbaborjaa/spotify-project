@@ -1,0 +1,28 @@
+/* h1 {
+    color: white;
+} */
+
+* {
+    color: white;
+}
+
+button {
+    padding: auto;
+}
+
+.container {
+    align-items: center;
+}
+
+body {
+    text-align: center;
+    background-color: black;
+}
+
+button {
+    color: black;
+}
+
+input {
+    color: black;
+}

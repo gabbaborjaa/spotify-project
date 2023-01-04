@@ -7,10 +7,17 @@ const options = {
 };
 
 const search = document.getElementById('query');
+// const type = document.getElementById('type');
+
+// Val function retrieves value within input tag
+
+function getData() {
+    fetch(`https://spotify23.p.rapidapi.com/search/?q=${search}&type=multi&offset=0&limit=10&numberOfTopResults=5`, options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+}
 
 
 
-fetch(`https://spotify23.p.rapidapi.com/search/?q=${search}&type=multi&offset=0&limit=10&numberOfTopResults=5`, options)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+document.getElementById("goSearch").addEventListener("click", getData);
