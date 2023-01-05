@@ -9,7 +9,12 @@ const options = {
 const search = document.getElementById('query');
 // const type = document.getElementById('type');
 
-// Val function retrieves value within input tag
+
+function displayS() {
+    const searchQ = search.innerHTML;
+    console.log(searchQ);
+
+}
 
 function getData() {
     fetch(`https://spotify23.p.rapidapi.com/search/?q=${search}&type=multi&offset=0&limit=10&numberOfTopResults=5`, options)
@@ -17,7 +22,5 @@ function getData() {
         .then(response => console.log(response))
         .catch(err => console.error(err));
 }
-
-
 
 document.getElementById("goSearch").addEventListener("click", getData);
