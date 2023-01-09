@@ -3,7 +3,7 @@
 } */
 
 * {
-    color: white;
+    color: black;
     font-family: spotify-circular, ;
 }
 
@@ -17,13 +17,46 @@ button {
 
 body {
     text-align: center;
-    background-color: black;
+    background-color: #ECF2E2;
 }
 
 button {
-    color: black;
+    padding: 5px;
+}
+
+.button-wrapper {
+    padding: 5px;
 }
 
 input {
-    color: black;
+    height: 50px;
+}
+
+ ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    white-space: pre-line;
+    position: relative;
+    top: -7px;
+    text-align: center;
+}
+
+ ::-moz-placeholder {
+    /* Firefox 19+ */
+    white-space: pre-line;
+    position: relative;
+    top: -7px;
+}
+
+ :-ms-input-placeholder {
+    /* IE 10+ */
+    white-space: pre-line;
+    position: relative;
+    top: -7px;
+}
+
+ :-moz-placeholder {
+    /* Firefox 18- */
+    white-space: pre-line;
+    position: relative;
+    top: -7px;
 }
