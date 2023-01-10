@@ -1,4 +1,4 @@
-// You know. I actually don't know what this does.
+// RapidAPI GET Request
 const options = {
     method: 'GET',
     headers: {
@@ -12,22 +12,24 @@ function getData() {
     const search = document.getElementById("search").value;
     // js function that retrieves API endpoint
     fetch(`https://spotify23.p.rapidapi.com/search/?q=${search}&type=multi&offset=0&limit=10&numberOfTopResults=5`, options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        // json response into console.log
-        .catch(err => console.error(err));
-};
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("NETWORK RESPONSE ERROR");
+            }
+        })
+        .then(data => {
+            console.log(data);
+            const dataResults = data.tracks.items[0].data.name;
+
+            console.log(dataResults)
+
+        });
+}
 
 // Displays results into UI by declaring proper variables
-function displayResults(data) {
-    const artist = artist.items[0];
-    const artistResults = document.getElementById("view");
-
-    const artistName = artist.data.profile;
-    const heading = document.getElementById("h1");
-    heading.innerHTML = artistName;
-    artistResults.appendChild(heading);
-}
+function displayResults() {}
 
 
 document.getElementById("submit").addEventListener("click", getData);
