@@ -22,14 +22,17 @@ function getData() {
         .then(data => {
             console.log(data);
             const dataResults = data.tracks.items[0].data.name;
-
             console.log(dataResults)
 
         });
 }
 
 // Displays results into UI by declaring proper variables
-function displayResults() {}
+function displayResults(data) {
+    document.getElementById("artistName").innerHTML = displayArtist
+    const displayArtist = data.tracks.items[0].data.name;
+    console.log(displayArtist)
+}
 
 
 document.getElementById("submit").addEventListener("click", getData);
