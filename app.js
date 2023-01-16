@@ -7,7 +7,7 @@ const options = {
     }
 };
 
-function getData() {
+function getData(data) {
     // search reads value that user types into input.
     const search = document.getElementById("search").value;
     // js function that retrieves API endpoint
@@ -21,19 +21,19 @@ function getData() {
         })
         .then(data => {
             console.log(data);
-            const dataResults = data.tracks.items[0].data.name;
-            console.log(dataResults)
+            // const dataResults = data.tracks.items[0].data.name;
+            // console.log(dataResults)
 
         });
-}
+    displayResults(data);
+};
 
 // Displays results into UI by declaring proper variables
 function displayResults(data) {
-    document.getElementById("artistName").innerHTML = displayArtist
     const displayArtist = data.tracks.items[0].data.name;
-    console.log(displayArtist)
+    document.getElementById("artistName").innerHTML = displayArtist;
+    console.log(displayArtist);
 }
 
 
 document.getElementById("submit").addEventListener("click", getData);
-document.getElementById("submit").addEventListener("click", displayResults);
