@@ -33,7 +33,6 @@ function displayResults(data) {
     const displayArtist = data.tracks.items[0].data.name;
     document.getElementById("artistName").innerHTML = displayArtist;
     console.log(displayArtist);
-}
-
+};
 
 document.getElementById("submit").addEventListener("click", getData);
