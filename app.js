@@ -7,7 +7,7 @@ const options = {
     }
 };
 
-function getData(data) {
+function getData() {
     // search reads value that user types into input.
     const search = document.getElementById("search").value;
     // js function that retrieves API endpoint
@@ -20,19 +20,24 @@ function getData(data) {
             }
         })
         .then(data => {
-            console.log(data);
-            // const dataResults = data.tracks.items[0].data.name;
-            // console.log(dataResults)
-
+            const dataResults = data.tracks.items;
+            document.getElementById("topSong").innerHTML = "";
+            dataResults.forEach(element => {
+                displayResults(element.data.name);
+            });
         });
-    displayResults(data);
 };
 
 // Displays results into UI by declaring proper variables
-function displayResults(data) {
-    const displayArtist = data.tracks.items[0].data.name;
-    document.getElementById("artistName").innerHTML = displayArtist;
-    console.log(displayArtist);
+function displayResults(song) {
+    document.getElementById("topSong").innerHTML += "<p>" + song + "</p>";
 };
 
+
+
 document.getElementById("submit").addEventListener("click", getData);
+document.getElementById("search").addEventListener("keydown", function(e) {
+    if (e.code === "Enter") { //checks whether the pressed key is "Enter"
+        getData();
+    }
+});
