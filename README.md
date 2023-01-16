@@ -1,4 +1,4 @@
-# Song Search APp
+# Song Search App
 
 ## Preface
 
