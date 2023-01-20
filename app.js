@@ -6,6 +6,14 @@ const options = {
         'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
     }
 };
+// Sees if search is empty
+function validateSearch() {
+    var search = document.getElementById("search").value;
+    if (search == "") {
+        alert("Empty search!");
+        return false;
+    }
+}
 
 function getData() {
     // search reads value that user types into input.
@@ -20,8 +28,10 @@ function getData() {
             }
         })
         .then(data => {
+            validateSearch;
             const dataResults = data.tracks.items;
             document.getElementById("topSong").innerHTML = "";
+            // Displays data from each item
             dataResults.forEach(element => {
                 displayResults(element.data.name);
             });
